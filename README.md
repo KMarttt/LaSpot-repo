@@ -13,6 +13,7 @@ Sent in the DC
 For the SQL Stuff:
 1. Create a new database in your SQL server.
 2. Use the SQL script provided in the repository to create the required tables.
+3. Follow this order when creating the database:
     1. Admin_codes
     2. Admin
     3. Admin_log
