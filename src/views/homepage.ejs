@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Spot: DLSU-D Parking</title>
+
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="Assets/favIcon1.png" type="image/x-icon" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!--==================== HEADER NAVABAR ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav__logo">
+          <img src="Assets/LaspotLogo2.png" alt="logo image" />
+          La Spot
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">Home</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#procedure" class="nav__link">Procedure</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#parking" class="nav__link">Parking</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#contact-us" class="nav__link">Contact Us</a>
+            </li>
+          </ul>
+
+          <!-- Close Button -->
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+
+        <!-- Toggle Button For Resized Media -->
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-apps-2-line"></i>
+        </div>
+      </nav>
+    </header>
+    <!--==================== MAIN ====================-->
+
+    <main class="main">
+      <!--=============== HOME SECTION ===============-->
+      <section class="home section" id="home">
+        <div class="home__container">
+          <div class="home__content">
+            <h1 class="home__title">LA SPOT</h1>
+            <p class="subheading">DLSU-D PARKING SYSTEM</p>
+            <p class="description">
+              Welcome to La Spot, Lasallians! A parking system catered<br />
+              to students and faculty of De La Salle University - Dasmariñas.<br />
+              SPOT you’re parking now!
+            </p>
+
+          <div class = "home__buttons">
+            <a href = "login" class = "btn btn-primary">Login</a>
+            <a href = "/signup" class = "btn btn-secondary">Signup</a>
+          </div>
+        </div>
+
+        <div class="home__image">
+          <img
+            src="Assets/mainLogo.png"
+            alt="mainLogo"
+            class="home__mainLogo"
+          />
+        </div>
+      </section>
+
+      <!--=============== PROCEDURE SECTION ===============-->
+      <section class="procedure section" id="procedure">
+        <div class = "procedure__container">
+          <div class = "procedure__content">
+            <p class = "mini__section__title">Procedure</p>
+            <p class="mini_section_subheading">Can’t find parking spaces? <b>La Spot</b> got you! <br/>
+              Just follow these steps and you are good to go!</p>
+
+              <div class = "procedure__card__container">
+                <div class = "procedure__card1">
+                  <img src = "Assets/createAcc.png" alt = "step1" class = "procedure__card__image"/>
+                  <p class = "procedure__card__title">Create an Account.</p>
+                  <p class = "procedure__card__description">Sign up or log in to your La Spot<br/>account to get started.</p>
+                </div>
+                <div class = "procedure__card2">
+                  <img src = "Assets/verify.png" alt = "step2" class = "procedure__card__image"/>
+                  <p class = "procedure__card__title">Verify.</p>
+                  <p class = "procedure__card__description">Secure your account by verifying<br/>your student number and email.</p>
+                </div>
+                <div class = "procedure__card3">
+                  <img src = "Assets/UseLS.png" alt = "step3" class = "procedure__card__image"/>
+                  <p class = "procedure__card__title">Use La Spot!</p>
+                  <p class = "procedure__card__description">Enjoy seamless parking management with La Spot—<br/>convenient, fast, and easy!</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <!--=============== PARKING SECTION ===============-->
+      <section class="parking section" id="parking">
+        <div class = "parking__container">
+          <div class = "parking__content">
+            <p class = "mini__section__title">Parking</p>
+            <p class = "mini_section_subheading">La Spot is still in development. For now, these are the available parking<br/>
+              areas you can view. More parking locations will be added soon!</p>
+
+              <div class = "parking__card__wrapper">
+                <!-- Navigation Buttons -->
+                <button class="nav-btn prev">&#10094;</button>
+
+                <div class  = "parking__card__container">
+                  <div class = "parking__card">
+                    <img src = "Photos/g1__ictc.png" alt = "Parking Near ICTC" class = "parking__card__image"/>
+                    <p class = "parking__card__title">Parking Spots</p>
+                    <p class = "parking__card__description">Gate 1: near ICTC Building</p>
+                  </div>
+                  <div class = "parking__card">
+                    <img src = "Photos/g1__magdalo.png" alt = "Magdalo Gate Parking" class = "parking__card__image"/>
+                    <p class = "parking__card__title">Magdalo Gate</p>
+                    <p class = "parking__card__description">Parking Spots near Gate 1</p>
+                  </div>
+                  <div class = "parking__card">
+                    <img src = "Photos/g1__ADG.png" alt = "Parking Near ADG" class = "parking__card__image"/>
+                    <p class = "parking__card__title">Parking Spots</p>
+                    <p class = "parking__card__description">Gate 1: near Ayuntamiento De Gonzales</p>
+                  </div>
+                </div>
+                <!-- Navigation Buttons -->
+                <button class="nav-btn next">&#10095;</button>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <!--=============== CONTACT/FOOTER SECTION ===============-->
+      <!-- baka ilabas natin toh mamaya -->
+      <section class="contact section" id="contact-us">
+        <div class = "contact__container">
+          <div class = "contact__contents">
+            <p class = "contact__title">Contact us.</p>
+            <p class = "contact__description">Our vision is to provide convenience<br/>and seamless parking experience.</p>
+            <div class = "contact__socials">
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+              <a href="#"><i class="ri-twitter-fill"></i></a>
+              <a href="#"><i class="ri-instagram-fill"></i></a>
+            </div>
+          </div>
+
+          <!-- Contact Links -->
+          <div class="contact__links">
+            <div class="contact__column">
+                <h3>About</h3>
+                <a href="#">How it works</a>
+                <a href="#">Featured</a>
+                <a href="#">Partnership</a>
+            </div>
+            <div class="contact__column">
+                <h3>Community</h3>
+                <a href="#">Events</a>
+                <a href="#">Blog</a>
+                <a href="#">Podcast</a>
+            </div>
+            <div class="contact__column">
+                <h3>Socials</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Bottom Section -->
+        <div class="contact__bottom">
+          <p>©2025 La Spot: DLSU-D Parking System</p>
+          <div class="contact__legal">
+              <a href="#">Privacy & Policy</a>
+              <a href="#">Terms & Condition</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+
+    <!--==================== ADDITIONALS ====================-->
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up"
+      ><i class="ri-arrow-up-line"></i
+    ></a>
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

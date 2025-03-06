@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signup-admin.css">
+    <title>Signup Admin</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left-section">
+            <div class="parking-picture">
+                <img src="Picture/Parking logo.png" class="hovering-image">
+                <img src="Picture/parking 1.png" class="parking1-image">
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="picture-container">
+                <img src="Picture/LOGO.png">
+            </div>
+
+            <div class="login-text">
+                <b>Signup</b>
+            </div>
+
+            <div class="enter-email">
+                <b>Enter your details to sign up</b>
+            </div>
+
+            <div class="container">
+                <form action="/signup-admin" method="POST">    
+                    <input type="FName" placeholder="First Name" name="Fname" required>
+                    <input type="LName" placeholder="Last name" name="Lname" required>
+                    <input type="AdminCode" placeholder="Admin Code" name="AdminCode" required>
+                    <input type="Pass" placeholder="Password" name="AdPass" required>
+                    <input type="CPass" placeholder="Confirm Password" name="AdminConfirmPass" required>
+                    <% if (typeof message !== "undefined" && message) { %>
+                        <h4 style="text-align: center; color: red; font-weight: bold; margin-top: 10px;"><%= message %></h4>
+                    <% } %>
+                    <button type="submit" class="submit-button">Next</button>
+                   
+                    
+                    <a class="need-help" href="">Need help? Visit our <b>help center</b></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

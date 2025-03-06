@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --header-height: 3.5rem;
+  
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: rgb(7, 57, 60);
+    --first-color-alt: hsl(187, 43, 30);
+    --text-color: hsl(260, 14, 4);
+    --white-color: #F0EDEE;
+  
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Plus Jakarta Sans", serif;
+    --biggest-font-size: 5rem; /*80px*/
+    --h1-font-size: 1.5rem; /*24px*/
+    --h2-font-size: 1.25rem; /*20px*/
+    --normal-font-size: 1rem; /*16px*/
+    --small-font-size: .813rem; /*13px*/
+    --smaller-font-size: .75rem; /*12px*/
+  
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 700;
+    --font-bold: 800;
+    
+    /*========== z index ==========*/
+    /* this are for the layers.  */
+    /* the lesser, the more they are at the top of the elements */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+} 
+
+body {
+    margin: 0;
+    font-family: var(--body-font);
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.left-section {
+    flex: 1;
+    background-color: var(--first-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.right-section {
+    flex: 1;
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.picture-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-text {
+    font-size: 1.5rem; 
+    color: var(--first-color);
+    margin-top: 10px; 
+    text-align: center;
+}
+
+.enter-email {
+    font-size: 1rem; 
+    color: var(--first-color);
+    margin-top: 15px; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="Plate"] {
+    width: 75%;
+    padding: 10px;
+    margin: 0 auto 10px;
+    border: 1px solid var(--first-color);
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    display: block;
+    color: var(--first-color);
+    font-family: var(--body-font);
+    font-size: var(--small-font-size);
+}
+
+input[type="Plate"]::placeholder {
+    color: var(--first-color);
+}
+
+input[type="Plate"]:focus {
+    border-color: var(--first-color);
+}
+.container {
+    width: 80%; 
+    max-width: 400px;
+    margin: 0 auto; 
+    padding: 0; 
+    background-color: transparent; 
+    box-shadow: none; 
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: var(--first-color);
+    color: var(--first-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #F0EDEE;
+    color: var(--first-color);
+}
+
+.submit-button {
+    width: 80%; 
+    padding: 10px;
+    background-color: var(--first-color);
+    color: var(--white-color);
+    font-family: var(--body-font);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+    display: block; 
+    margin: 20px auto 0; 
+}
+
+.submit-button:hover {
+    background-color: var(--first-color-alt);
+    color: var(--white-color); 
+}
+
+.need-help {
+    display: block;
+    margin: 10px auto 20px; 
+    color: var(--first-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: var(--small-font-size);
+    transition: color 0.3s ease; 
+    width: 80%;
+}
+
+.need-help:hover {
+    color: var(--first-color-alt);
+}
+
+
+.parking-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0; 
+    position: relative;
+}
+
+.hovering-image {
+    width: 100px; 
+    animation: hoverEffect 3s infinite alternate ease-in-out;
+    position: absolute; 
+    top: 20px; 
+    left: 45%; 
+    transform: translateX(-50%); 
+}
+
+.picture-container {
+    margin-top: 10px;
+}
+
+.parking1-image {
+    width: 400px; 
+}
+
+@keyframes hoverEffect {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px); 
+    }
+}
+
+select {
+    width: 80%; 
+    padding: 10px;
+    margin: 0 auto 10px; 
+    border: 1px solid var(--first-color); 
+    border-radius: 10px;
+    transition: border-color 0.3s ease; 
+    display: block; 
+    color: var(--first-color);
+    font-family: var(--body-font);
+    font-size: var(--small-font-size);
+    background-color: var(--white-color);
+}
+
+select:focus {
+    border-color: var(--first-color);
+}

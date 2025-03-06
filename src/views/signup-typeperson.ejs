@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signup-typeperson.css">
+    <title>Signup</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left-section">
+            <div class="parking-picture">
+                <img src="Picture/Parking logo.png" class="hovering-image">
+                <img src="Picture/parking 1.png" class="parking1-image">
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="picture-container">
+                <img src="Picture/LOGO.png">
+            </div>
+
+            <div class="login-text">
+                <b>Signup</b>
+            </div>
+
+            <div class="enter-accountType">
+                <b>Pick Account Type</b>
+            </div>
+
+            <div class="container">
+                <form action="/submit_accountType" method="post">    
+                    <select name="AccountType" id="AccountTypes">
+                        <option value="student">Student</option>
+                        <option value="worker">Worker</option>
+                        <option value="admin">Admin</option>
+                    </select>
+
+                    <button type="submit" class="submit-button" href="">Next</button>
+                    <a class="need-help" href="">Need help? Visit our <b>help center</b></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,900 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+/*=============== VARIABLES CSS ===============*/
+/*Root elements*/
+
+:root {
+    --header-height: 3.5rem;
+  
+    /*========== Colors ==========*/
+    --first-color: rgb(7, 57, 60);
+    --first-color-alt: rgb(44, 102, 110);
+    --text-color:rgb(29,28,31);
+    --white-color: #F0EDEE;
+  
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Plus Jakarta Sans", serif;
+    --biggest-font-size: 5rem; /*80px*/
+    --section-font-size: 2.5rem; /*40px*/
+    --h1-font-size: 1.5rem; /*24px*/
+    --h2-font-size: 1.25rem; /*20px*/
+    --normal-font-size: 1rem; /*16px*/
+    --small-font-size: .813rem; /*13px*/
+    --smaller-font-size: .75rem; /*12px*/
+  
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 700;
+    --font-bold: 800;
+    
+    /*========== z index ==========*/
+    /* this is for the layers.  */
+    /* the lesser, the more they are at the top of the elements */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+  }
+  
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  }
+  
+html{
+  scroll-behavior: smooth;
+}
+  
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--white-color);
+  color: var(--text-color);
+}
+  
+h1, h2, h3 {
+  color: var(--first-color);
+  font-weight: var(--font-medium);
+}
+  
+  /*applies to all unordered list elements*/
+ul {
+  list-style: none;
+}
+  
+  /*applies to all anchored elements*/
+a {
+  text-decoration: none;
+}
+  
+  /*applies to all images elements*/
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+  /*=============== CSS CLASSES ===============*/
+.container {
+    max-width: 1024px;
+    margin-inline: 1.5rem;
+}
+  
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+  
+.section {
+    padding-block: 5rem 1rem;
+}
+.section__title {
+    font-size: var(--h1-font-size);
+    font-family: var(--second-font);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+  
+
+
+ /*=============== Header and Nav ===============*/ 
+ .header{
+    position: fixed;
+    background-color: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-fixed);
+    transition: background .4s ease-in-out;
+ }
+
+
+ .nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2 rem;
+    position:relative;
+    
+ 
+ }
+
+ .nav__logo,
+ .nav__toggle,
+ .nav__close{
+    display:flex;
+    color: var(--first-color);
+ }
+
+.nav__logo img{
+  width: 27px;
+}
+
+.nav__logo{
+    align-items: center;
+    column-gap: 0.25rem;
+    font-family: var(--body-font);
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+  }
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav__list{
+  display:flex;
+  gap: 2rem;
+  list-style:none;
+}
+
+/* Hide toggle & close button by default */
+.nav__toggle,
+.nav__close {
+    display: none;
+}
+
+
+/* Show menu */
+.show-menu{
+  top:0;
+}
+
+/* Change background header */
+.bg-header{
+  background: var(--body-color);
+}
+
+/* Active link */
+.active-link{
+  color: var(--first-color);
+}
+
+/* Hover effect*/
+.nav__link{
+    color: var(--first-color-alt);
+    font-weight: var(--font-medium);
+    transition: color .4s;
+  }
+
+/* hover for nav__link */
+.nav__link:hover{
+    color: var(--body-color);
+  }
+
+
+
+ /*=============== HOME ===============*/
+
+ .home{
+  margin-top: var(--header-height);
+  position:relative;
+  background-image: url('../Assets/homeBG4.png');
+  /* background-color: blue; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 1150px;
+  width: 100%;
+  gap: 2rem;
+}
+
+.home__content{
+  flex: 1;
+  text-align: left;
+}
+
+.home__title{
+  color: var(--first-color);
+  font-size: var(--biggest-font-size);
+  font-family: var(--body-font);
+  font-weight: var(--font-semi-bold);
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+.subheading {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--first-color);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  max-width: 500px;
+  margin-top: 1.5rem;
+}
+
+.home__image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+.home__buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Login Button */
+.btn-primary {
+  background-color: var(--first-color-alt);
+  color: var(--white-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--first-color);
+}
+
+/* Signup Button */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--first-color);
+  border: 1px solid var(--first-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--first-color);
+  color: white;
+}
+
+
+
+
+/*=============== PROCEDURE ===============*/
+.procedure{
+  text-align:center;
+  padding: 50px 20px;
+  background-color: var(--white-color);
+}
+
+.mini__section__title{
+  font-size: var(--section-font-size);
+  font-family: var(--body-font);
+  font-weight: var(--font-semi-bold);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--first-color);
+}
+
+.mini_section_subheading {
+  font-size: var(--h2-font-size);
+  color: var(--text-color);
+  margin-bottom: 60px;
+}
+
+/* Card Container */
+.procedure__card__container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Card Styling */
+.procedure__card1, .procedure__card2, .procedure__card3 {
+  background-color: var(--white-color);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.procedure__card1:hover, .procedure__card2:hover, .procedure__card3:hover {
+  transform: translateY(-20px);
+
+}
+
+.procedure__card__image{
+  width: 250px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.procedure__card__title {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 10px;
+  color: var(--first-color);
+}
+
+.procedure__card__description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+
+/*=============== PARKING ===============*/
+
+.parking {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: var(--white-color);
+}
+
+.parking__card__wrapper {
+  width: 80%;
+  margin: 0 auto; /* Center it */
+  overflow: hidden; /* Hides extra cards outside the view */
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  /* border: red 1px solid; */
+}
+
+
+.parking__card__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+  flex-wrap: nowrap; /* Prevents wrapping */
+  max-width: 100%; /* Prevents it from being too wide */
+  transition: transform 0.5s ease-in-out;
+}
+
+/*ADDS*/
+.parking__card__container::before,
+.parking__card__container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(to right, var(--white-color), rgba(255, 255, 255, 0));
+    z-index: 1;
+}
+
+.parking__card__container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--white-color), rgba(255, 255, 255, 0));
+}
+
+.parking__card__container::before {
+    left: 0;
+}
+
+
+/*Parking cards*/
+.parking__card {
+  position: relative; /* Make sure the card is a positioning context */
+  flex: 0 0 auto;
+  width: 90%; /* Ensure image is visible */
+  max-width: 350px;
+  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--white-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  transition: opacity 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+
+/* Parking Card Image */
+.parking__card__image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 50px;
+
+}
+
+/* Style the text to overlay on the image */
+.parking__card__title,
+.parking__card__description {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white; /* Ensures visibility */
+  z-index: 2;
+  width: 90%;
+}
+
+/* Position title near the top */
+.parking__card__title {
+  top: 200px;
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+/* Position description slightly lower */
+.parking__card__description {
+  top: 240px;
+  font-size: var(--normal-font-size);
+}
+
+
+
+.parking__card__title{
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: var(--first-color);
+  /* z-index: 2; */
+}
+
+.parking__card__description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  margin-bottom: -5px;
+  /* z-index: 2; */
+}
+
+
+
+/* Navigation Buttons */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--white-color);
+  border: none;
+  padding: 15px 21px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1rem;
+  z-index: 10;
+}
+
+.nav-btn:hover {
+  background: var(--first-color);
+}
+
+.prev {
+  left: 200px;
+}
+
+.next {
+  right: 200px;
+}
+
+
+
+/*=============== CONTACT US ===============*/
+.contact {
+  background-color: var(--first-color);
+  color:var(--white-color);
+  padding: 50px 5%;
+  font-family: var(--body-font);
+}
+
+/* Container Layout */
+.contact__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 1rem;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Left Side: Contact Details */
+.contact__contents {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.contact__title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: 30px;
+}
+
+.contact__description {
+  font-size: var(--normal-font-size);
+  color: var(--white-color);
+  margin-bottom: 30px;
+}
+
+/* Social Media Icons */
+.contact__socials a {
+  display: inline-block;
+  font-size: var(--normal-font-size);
+  margin-right: 15px;
+  color: var(--white-color);
+  /* icon hover change */
+  display: inline-flex; /* Centers the icon inside */
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Adjust size */
+  height: 40px; /* Adjust size */
+  border-radius: 50%; /* Makes it circular */
+  border: 2px solid transparent; /* Default no border */
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 30px;
+}
+
+.contact__socials a:hover {
+  color: var(--white-color);
+  border-color: var(--first-color-alt);
+}
+
+/* Right Side: Contact Links */
+.contact__links {
+  display: flex;
+  justify-content: right;
+  flex: 2;
+  gap: 2rem; /* Add spacing between columns */
+  
+}
+
+.contact__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+}
+
+.contact__column h3 {
+  font-size: var(--normal-font-size);
+  margin-bottom: 10px;
+}
+
+.contact__column a {
+  display: block;
+  font-size: var(--normal-font-size);
+  color: var(--white-color);
+  text-decoration: none;
+  margin-bottom: 5px;
+  transition: 0.3s;
+}
+
+.contact__column a:hover {
+  color: var(--text-color);
+}
+
+/* Bottom Section */
+.contact__bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--white-color);
+  padding-top: 20px;
+  margin-top: 30px;
+  font-size: 14px;
+  max-width: 1100px; /* Match width */
+  margin: 0 auto; /* Center align */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact__legal a {
+  color: var(--white-color);
+  margin-left: 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact__legal a:hover {
+  color: var(--text-color);
+}
+
+
+
+/*=============== SCROLL UP ===============*/
+.scrollup {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  width: 45px;
+  height: 45px;
+  background: var(--first-color-alt); /* Light teal background */
+  color: var(--white-color);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+/* Show button when scrolling */
+.show-scroll {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Hover effect */
+.scrollup:hover {
+  background: var(--first-color); /* Full teal on hover */
+  box-shadow: 0px 0px 10px var(--white-color);
+}
+
+
+
+/*=============== SCROLLBAR ===============*/
+
+::-webkit-scrollbar {
+  width:10px;
+}
+
+/* Background of the track */
+::-webkit-scrollbar-track {
+  background: var(--white-color);
+}
+
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--first-color-alt); 
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Scrollbar Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--first-color); 
+}
+
+
+
+/*=============== COMPILED RESPONSIVE DESIGNS ===============*/
+
+
+/* ========== MAX-WIDTH: 990px ========== */
+@media (max-width: 990px) {
+
+  /* ====== HEADER & NAV ====== */
+  .nav__menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: var(--white-color);
+    width: 100%;
+    padding-block: 3.5rem;
+    transition: top .4s;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .nav__toggle, .nav__close {
+    display: block;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+
+  .nav__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+  }
+  
+  /* Show menu */
+  .show-menu{
+    top:0;
+  }
+  
+  /* Change background header */
+  .bg-header{
+    background: var(--body-color);
+  }
+  
+  /* Active link */
+  .active-link{
+    color: var(--first-color);
+  }
+  
+  /* Hover effect*/
+  .nav__link{
+    color: var(--first-color-alt);
+    font-weight: var(--font-medium);
+    transition: color .4s;
+  }
+  
+  /* hover for nav__link */
+  .nav__link:hover{
+    color: var(--body-color);
+  }
+
+
+  /* ====== PARKING ====== */
+  .parking__card__wrapper {
+    width: 90%;
+  }
+  .parking__card {
+    max-width: 100%;
+  }
+  .nav-btn {
+    padding: 15px 21px;
+  }
+  .nav-btn.prev {
+    left: 10px;
+  }
+  .nav-btn.next {
+    right: 10px;
+  }
+  .parking__card__container {
+    gap: 40px;
+  }
+  .parking__card__title {
+    font-size: var(--h1-font-size);
+    top: 400px;
+  }
+  .parking__card__description {
+    font-size: var(--h2-font-size);
+    top: 450px;
+  }
+}
+
+
+/* ========== MIN: 495px - MAX: 768px ========== */
+@media (min-width: 495px) and (max-width: 768px) {
+
+ 
+  /* ====== HOME ====== */
+  .home__container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .home__image {
+    margin-top: 2rem;
+  }
+
+  /* ====== PARKING ====== */
+  .parking__card__wrapper {
+    width: 90%;
+  }
+  .parking__card {
+    max-width: 100%;
+  }
+  .nav-btn {
+    padding: 15px 21px;
+  }
+  .nav-btn.prev {
+    left: 10px;
+  }
+  .nav-btn.next {
+    right: 10px;
+  }
+  .parking__card__container {
+    gap: 20px;
+  }
+  .parking__card__title {
+    position: absolute;
+    font-size: var(--h1-font-size);
+    top: 280px;
+  }
+  .parking__card__description {
+    position: absolute;
+    font-size: var(--h2-font-size);
+    top: 320px;
+  }
+
+    /* ====== PARKING ====== */
+  .parking__card__title {
+    position: absolute;
+    font-size: var(--h2-font-size);
+    top:180px;
+
+  }
+
+  .parking__card__description {
+    position: absolute;
+    font-size: var(--normal-font-size);
+    top: 220px;
+  }
+
+
+    /* ====== CONTACT ====== */
+    .contact__container {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: 1fr;
+      text-align: center;
+      align-items: center;
+    }
+
+    .contact__contents {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .contact__links {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap:20px;
+      margin-bottom: 30px;
+  
+    }
+    .contact__bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+    }
+    .contact__legal {
+      margin-top: 10px;
+    }
+}
+
+
