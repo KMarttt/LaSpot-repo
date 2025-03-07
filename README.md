@@ -8,7 +8,7 @@ To execute the code:
 3. Open your web browser and navigate to `http://localhost:8080` (or 4040) to view the application.
 
 Environment Data:
-Sent in the DC
+Sent in the DC (You may change the env data to match your database information)
 
 For the SQL Stuff:
 1. Create a new database in your SQL server.
