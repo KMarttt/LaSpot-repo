@@ -93,9 +93,12 @@ exports.signupAdmin = async(req,res) => {
         }
     });
 
+    // let password = bcrypt.hashSync(req.session.password, 10);
+    let password = await bcrypt.hashSync(AdPass, 10);
+
     // Will insert the admin information into the database
     let sqlAdminInfo = `INSERT INTO admin_information (admin_code, first_name, last_name, account_password) VALUES (?, ?, ?, ?)`;
-    let valuesAdminInfo = [AdminCode, Fname, Lname, AdPass];
+    let valuesAdminInfo = [AdminCode, Fname, Lname, password];
     
     connection.query(sqlAdminInfo, valuesAdminInfo, (error, results) => {
         if (error){

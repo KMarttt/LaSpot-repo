@@ -12,9 +12,13 @@
             return res.render("homepage.ejs");
         });
 
+        router.get("/dashboard", (req, res) => {
+            return res.render("dashboard.ejs");
+        });
 
         router.get("/login", loginController.getLoginPage);
-
+        
+        router.post("/submit_login", loginController.login);
 
         router.get("/signup", (req, res) => {
             return res.render("signup-typeperson.ejs")
