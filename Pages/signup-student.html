@@ -5,8 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="signup-student.css">
     <title>Signup Student</title>
+
+    <script>
+      document.querySelector('form').addEventListener('submit', function(event) {
+          const FName = document.querySelector('input[name="FName"]');
+          const LName = document.querySelector('input[name="LName"]');
+          const SEmail = document.querySelector('input[name="SEmail"]');
+          const SNum = document.querySelector('input[name="SNum"]');
+          const Pass = document.querySelector('input[name="Pass"]');
+          const CPass = document.querySelector('input[name="CPass"]');
+          let valid = true;
+
+          if (!FName.value) {
+              event.preventDefault();
+              Fname.classList.add('error');
+              Fname.placeholder = 'First name is required';
+              valid = false;
+          } else {
+              Fname.classList.remove('error');
+              Fname.placeholder = Fname.dataset.placeholder;
+          }
+
+          if (!LName.value) {
+              event.preventDefault();
+              LName.classList.add('error');
+              LName.placeholder = 'Last name is required';
+              valid = false;
+          } else {
+              LName.classList.remove('error');
+              LName.placeholder = LName.dataset.placeholder;
+          }
+
+          if (!SEmail.value) {
+              event.preventDefault();
+              SEmail.classList.add('error');
+              SEmail.placeholder = 'Student email is required';
+              valid = false;
+          } else {
+              SEmail.classList.remove('error');
+              SEmail.placeholder = SEmail.dataset.placeholder;
+          }
+
+          if (!SNum.value) {
+              event.preventDefault();
+              SNum.classList.add('error');
+              SNum.placeholder = 'Student number is required';
+              valid = false;
+          } else {
+              SNum.classList.remove('error');
+              SNum.placeholder = SNum.dataset.placeholder;
+          }
+
+          if (!CPass.value) {
+              event.preventDefault();
+              CPass.classList.add('error');
+              CPass.placeholder = 'Confirm password is required';
+              valid = false;
+          } else {
+              CPass.classList.remove('error');
+              CPass.placeholder = CPass.dataset.placeholder;
+          }
+
+          if (!Pass.value) {
+              event.preventDefault();
+              Pass.classList.add('error');
+              Pass.placeholder = 'Password is required';
+              valid = false;
+          } else {
+              Pass.classList.remove('error');
+              Pass.placeholder = Pass.dataset.placeholder;
+          }
+
+          return valid;
+          });
+  </script>
+
 </head>
 <body>
+    <header class="header" id="header">
+        <nav class="nav container">
+          <a href="#" class="nav__logo">
+            <img src="Picture/LaspotLogo2.png" alt="logo image" />
+            La Spot
+          </a>
+  
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#home" class="nav__link active-link">Home</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#procedure" class="nav__link">Procedure</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#parking" class="nav__link">Parking</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#contact-us" class="nav__link">Contact Us</a>
+              </li>
+            </ul>
+  
+            <!-- Close Button -->
+            <div class="nav__close" id="nav-close">
+              <i class="ri-close-line"></i>
+            </div>
+          </div>
+  
+          <!-- Toggle Button For Resized Media -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-apps-2-line"></i>
+          </div>
+        </nav>
+      </header>
+
     <div class="wrapper">
         <div class="left-section">
             <div class="parking-picture">
@@ -29,12 +143,12 @@
 
             <div class="container">
                 <form action="signup-2.html" method="get">    
-                    <input type="FName" placeholder="First Name" name="Fname" required>
-                    <input type="LName" placeholder="Last name" name="Lname" required>
-                    <input type="SEmail" placeholder="Student Email" name="StuEmail" required>
-                    <input type="SNum" placeholder="Student Number" name="StuNumber" required>
-                    <input type="Pass" placeholder="Password" name="StuPass" required>
-                    <input type="CPass" placeholder="Confirm Password" name="StuConfirmPass" required>
+                    <input type="FName" placeholder="First Name" name="Fname" required data-placeholder="FName">
+                    <input type="LName" placeholder="Last name" name="Lname" required data-placeholder="LName">
+                    <input type="SEmail" placeholder="Student Email" name="StuEmail" required data-placeholder="SEmail">
+                    <input type="SNum" placeholder="Student Number" name="StuNumber" required data-placeholder="SNum">
+                    <input type="Pass" placeholder="Password" name="StuPass" required data-placeholder="Pass">
+                    <input type="CPass" placeholder="Confirm Password" name="StuConfirmPass" required data-placeholder="CPass">
                     <button type="submit" class="submit-button">Next</button>
                    
                     
