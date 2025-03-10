@@ -32,7 +32,7 @@ CREATE TABLE vehicle (
     vehicle_plate VARCHAR(10) PRIMARY KEY,
     student_id int,
     worker_id int,
-    vehicle_type ENUM("Sedan", "SUV", "Motorcyle"),
+    vehicle_type ENUM("Sedan", "SUV", "Motorcycle"),
     FOREIGN KEY (student_id) REFERENCES student_information(student_id) ON DELETE CASCADE,
     FOREIGN KEY (worker_id) REFERENCES worker_information(worker_id) ON DELETE CASCADE,
     CHECK(
@@ -46,7 +46,7 @@ INSERT INTO vehicle(vehicle_plate, worker_id, vehicle_type)
 VALUES
 ('ABC123', 123456789, 'Sedan'),
 ('XYZ456', 456789012, 'SUV'),
-('LMN789', 234567890, 'Motorcyle'),
+('LMN789', 234567890, 'Motorcycle'),
 ('DEF012', 345678901, 'Sedan');
 
 
@@ -55,7 +55,7 @@ INSERT INTO vehicle (vehicle_plate, student_id, vehicle_type)
 VALUES
 ('GHI345', 123456789, 'Sedan'),
 ('JKL678', 987654321, 'SUV'),
-('MNO901', 234567890, 'Motorcyle'),
+('MNO901', 234567890, 'Motorcycle'),
 ('PQR234', 345678901, 'Sedan'),
 ('STU567', 456789012, 'SUV');
 
