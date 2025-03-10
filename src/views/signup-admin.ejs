@@ -5,8 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/signup-admin.css">
     <title>Signup Admin</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector('form').addEventListener('submit', function(event) {
+          console.log("validating");
+          event.preventDefault();
+          const Form = document.querySelector('form');
+          const FName = document.querySelector('input[name="FName"]');
+          const LName = document.querySelector('input[name="LName"]');
+          const AdminCode = document.querySelector('input[name="AdminCode"]');
+          const Pass = document.querySelector('input[name="AdPass"]');
+          const CPass = document.querySelector('input[name="AdminConfirmPass"]');
+          const namePattern = /^[a-zA-Z]{2,}(?: [a-zA-Z]+)*$/;
+          const emailPattern = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@dlsud\.edu\.ph$/;
+          const idPattern = /^\d{9}$/;
+          let valid = true;
+
+          if (!FName.value || !namePattern.test(FName.value)) {
+              FName.classList.add('error');
+              FName.placeholder = 'First name is required';
+              FName.value = "";
+              valid = false;
+          } else {
+              FName.classList.remove('error');
+              FName.placeholder = FName.dataset.placeholder;
+          }
+
+          if (!LName.value || !namePattern.test(LName.value)) {
+              LName.classList.add('error');
+              LName.placeholder = 'Last name is required';
+              LName.value = "";
+              valid = false;
+          } else {
+              LName.classList.remove('error');
+              LName.placeholder = LName.dataset.placeholder;
+          }
+
+          if (!AdminCode.value) {
+              AdminCode.classList.add('error');
+              AdminCode.placeholder = 'Admin code is required';
+              AdminCode.value = "";
+              valid = false;
+          } else {
+              AdminCode.classList.remove('error');
+              AdminCode.placeholder = AdminCode.dataset.placeholder;
+          }
+
+          if (!Pass.value) {
+            Pass.classList.add('error');
+            Pass.placeholder = 'Password is required';
+            Pass.value = "";
+            valid = false;
+          } else {
+              Pass.classList.remove('error');
+              Pass.placeholder = Pass.dataset.placeholder;
+          }
+
+
+          if (!CPass.value || Pass.value !== CPass.value) {
+            CPass.classList.add('error');
+            CPass.placeholder = 'Confirm password is required';
+            CPass.value = "";
+            valid = false;
+          } else {
+              CPass.classList.remove('error');
+              CPass.placeholder = CPass.dataset.placeholder;
+          }
+
+          if (valid) {
+            Form.submit();
+          }
+
+        });
+      });
+    </script>
 </head>
 <body>
+    <header class="header" id="header">
+        <nav class="nav container">
+          <a href="#" class="nav__logo">
+            <img src="Picture/LaspotLogo2.png" alt="logo image" />
+            La Spot
+          </a>
+  
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#home" class="nav__link active-link">Home</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#procedure" class="nav__link">Procedure</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#parking" class="nav__link">Parking</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#contact-us" class="nav__link">Contact Us</a>
+              </li>
+            </ul>
+  
+            <!-- Close Button -->
+            <div class="nav__close" id="nav-close">
+              <i class="ri-close-line"></i>
+            </div>
+          </div>
+  
+          <!-- Toggle Button For Resized Media -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-apps-2-line"></i>
+          </div>
+        </nav>
+      </header>
+
     <div class="wrapper">
         <div class="left-section">
             <div class="parking-picture">
@@ -29,13 +142,13 @@
 
             <div class="container">
                 <form action="/signup-admin" method="POST">    
-                    <input type="FName" placeholder="First Name" name="Fname" required>
-                    <input type="LName" placeholder="Last name" name="Lname" required>
-                    <input type="AdminCode" placeholder="Admin Code" name="AdminCode" required>
-                    <input type="Pass" placeholder="Password" name="AdPass" required>
-                    <input type="CPass" placeholder="Confirm Password" name="AdminConfirmPass" required>
+                    <input type="FName" placeholder="First Name" name="FName" required data-placeholder="First Name">
+                    <input type="LName" placeholder="Last name" name="LName" required data-placeholder="Last name">
+                    <input type="AdminCode" placeholder="Admin Code" name="AdminCode" required data-placeholder="Admin Code">
+                    <input type="Pass" placeholder="Password" name="AdPass" required data-placeholder="Password">
+                    <input type="CPass" placeholder="Confirm Password" name="AdminConfirmPass" required data-placeholder="Confirm Password">
                     <% if (typeof message !== "undefined" && message) { %>
-                        <h4 style="text-align: center; color: red; font-weight: bold; margin-top: 10px;"><%= message %></h4>
+                      <h4 style="text-align: center; color: red; font-weight: bold; margin-top: 10px;"><%= message %></h4>
                     <% } %>
                     <button type="submit" class="submit-button">Next</button>
                    

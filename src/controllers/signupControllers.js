@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 exports.accountType = (req, res) => {
     const {AccountType} = req.body;
     req.session.accountType = AccountType;
+    console.log(req.session.accountType);
     
     // Will redirect the user to the appropriate signup page based on the account type
     if (AccountType === "student"){
@@ -24,12 +25,14 @@ exports.signupStudent = async (req, res) => {
     console.log(req.body);
 
     // Deconstructing the values from the form
-    const {Fname, Lname, StuEmail, StuNumber, StuPass, StuConfirmPass} = req.body;
-    req.session.firstName = Fname;
-    req.session.lastName = Lname;
+    const {FName, LName, StuEmail, StuNumber, StuPass, StuConfirmPass} = req.body;
+    req.session.firstName = FName;
+    req.session.lastName = LName;
     req.session.email = StuEmail;
     req.session.idNumber = StuNumber;
     req.session.password = StuPass;
+    console.log(req.session.firstName);
+    console.log(req.session.lastName);
 
     // Student validation
     try {
@@ -49,12 +52,15 @@ exports.signupWorker = async (req, res) => {
     console.log(req.body);
 
     // Deconstructing the values from the form
-    const {Fname, Lname, WorkEmail, WorkId, Pass} = req.body;
-    req.session.firstName = Fname;
-    req.session.lastName = Lname;
+    const {FName, LName, WorkEmail, WorkId, Pass} = req.body;
+    req.session.firstName = FName;
+    req.session.lastName = LName;
+    console.log(req.session.firstName);
+    console.log(req.session.lastName);
     req.session.email = WorkEmail;
     req.session.idNumber = WorkId;
     req.session.password = Pass;
+    
 
     // Worker validation
    try {
@@ -72,12 +78,12 @@ exports.signupWorker = async (req, res) => {
 
 exports.signupAdmin = async(req,res) => {
     console.log(req.body);
-    const {Fname, Lname, AdminCode, AdPass} = req.body;
+    const {FName, LName, AdminCode, AdPass} = req.body;
 
     // Admin code validation
     try {
         const checkResult = await signupValidation.checkAdminCodes(AdminCode);
-        if (checkResult.exist){
+        if (checkResult.taken){
             return res.render("signup-admin.ejs", {message: checkResult.message});
         } 
     } catch (error) {
@@ -98,7 +104,7 @@ exports.signupAdmin = async(req,res) => {
 
     // Will insert the admin information into the database
     let sqlAdminInfo = `INSERT INTO admin_information (admin_code, first_name, last_name, account_password) VALUES (?, ?, ?, ?)`;
-    let valuesAdminInfo = [AdminCode, Fname, Lname, password];
+    let valuesAdminInfo = [AdminCode, FName, LName, password];
     
     connection.query(sqlAdminInfo, valuesAdminInfo, (error, results) => {
         if (error){
@@ -113,11 +119,16 @@ exports.signupAdmin = async(req,res) => {
 exports.signupSubmit = async(req, res) => {
     console.log(req.body);
     const {CarType, CarPlatenumber} = req.body;
+    console.log(req.session.firstName);
+    console.log(req.session.lastName);
+    console.log("testing");
+    
 
     // Vehicle plate validation
     try{
         let checkResult = await signupValidation.checkVehiclePlate(CarPlatenumber);
         if (checkResult.exists){
+            console.log("testing");
             return res.render("signup-2.ejs", {message: checkResult.message});
         }
     } catch (error) {

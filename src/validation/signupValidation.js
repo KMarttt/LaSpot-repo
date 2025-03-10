@@ -47,7 +47,7 @@ exports.checkAdminCodes =  async (AdminCode) => {
         connection.query('SELECT admin_code FROM admin_codes WHERE admin_code = ? AND is_used = false;', [AdminCode], (error,results) => {
             if (error) return reject(error);
             if (results.length === 0 ) return resolve({taken: true, message: "Invalid Admin Code"});
-            return resolve({exists: false});
+            return resolve({taken: false});
         });
     });
 };

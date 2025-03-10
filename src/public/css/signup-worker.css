@@ -46,6 +46,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 80px;
 }
 
 .picture-container {
@@ -82,9 +83,12 @@ label {
     margin-bottom: 8px;
 }
 
-input[type="text"],
+input[type="FName"],
+input[type="LName"],
 input[type="email"],
-input[type="password"] {
+input[type="workerID"],
+input[type="password"],
+input[type="cpassword"] {
     width: 70%;
     padding: 10px;
     margin: 0 auto 10px;
@@ -97,15 +101,21 @@ input[type="password"] {
     font-size: var(--small-font-size);
 }
 
-input[type="text"]::placeholder,
+input[type="FName"]::placeholder,
+input[type="LName"]::placeholder,
 input[type="email"]::placeholder,
-input[type="password"]::placeholder {
+input[type="workerID"]::placeholder,
+input[type="password"]::placeholder,
+input[type="cpassword"]::placeholder {
     color: var(--first-color);
 }
 
-input[type="text"]:focus,
+input[type="FName"]:focus,
+input[type="LName"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus {
+input[type="workerID"]:focus,
+input[type="password"]:focus,
+input[type="cpassword"]:focus {
     border-color: var(--first-color);
 }
 
@@ -128,10 +138,10 @@ button:hover {
 .submit-button {
     width: 80%;
     padding: 10px;
-    background-color: var(--first-color);
-    color: var(--white-color);
     font-family: var(--body-font);
-    border: none;
+    background-color: transparent;
+    color: var(--first-color);
+    border: 1px solid var(--first-color);
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -140,8 +150,8 @@ button:hover {
 }
 
 .submit-button:hover {
-    background-color: var(--first-color-alt);
-    color: var(--white-color);
+    background-color: var(--first-color);
+    color: white;
 }
 
 .need-help {
@@ -192,4 +202,142 @@ button:hover {
     100% {
         transform: translateY(-20px);
     }
+}
+
+.header{
+    position: fixed;
+    background-color: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-fixed);
+    transition: background .4s ease-in-out;
+ }
+
+
+ .nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2 rem;
+    position:relative;
+    
+ 
+ }
+
+ .nav__logo,
+ .nav__toggle,
+ .nav__close{
+    display:flex;
+    color: var(--first-color);
+ }
+
+.nav__logo img{
+  width: 27px;
+}
+
+.nav__logo{
+    align-items: center;
+    column-gap: 0.25rem;
+    font-family: var(--body-font);
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+  }
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav__list{
+  display:flex;
+  gap: 2rem;
+  list-style:none;
+}
+
+/* Hide toggle & close button by default */
+.nav__toggle,
+.nav__close {
+    display: none;
+}
+
+
+/* Show menu */
+.show-menu{
+  top:0;
+}
+
+/* Change background header */
+.bg-header{
+  background: var(--body-color);
+}
+
+/* Active link */
+.active-link{
+  color: var(--first-color);
+}
+
+/* Hover effect*/
+.nav__link{
+    color: var(--first-color-alt);
+    font-weight: var(--font-medium);
+    transition: color .4s;
+  }
+
+/* hover for nav__link */
+.nav__link:hover{
+    color: var(--body-color);
+  }
+
+  /*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    }
+    
+  html{
+    scroll-behavior: smooth;
+  }
+    
+  body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--white-color);
+    color: var(--text-color);
+  }
+    
+  h1, h2, h3 {
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+  }
+    
+    /*applies to all unordered list elements*/
+  ul {
+    list-style: none;
+  }
+    
+    /*applies to all anchored elements*/
+  a {
+    text-decoration: none;
+  }
+    
+    /*applies to all images elements*/
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  
+/* Error state */
+input.error::placeholder {
+color: rgba(255, 0, 0, 0.50);
+}
+
+input.error {
+border-color: red;
 }

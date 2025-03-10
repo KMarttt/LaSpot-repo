@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.parking-lot {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-rows: auto; /* auto-height for each row */
+    gap: 0px; 
+    row-gap: 150px;
+    background-color: #f0f0f0;
+    padding: 10px; 
+}
+
+.parking-slot {
+    width: 100%; 
+    height: 240px; 
+    background-color: #c0c0c0;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.container mt-4{
+    display: absolute;
+    margin: auto auto;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+
+}

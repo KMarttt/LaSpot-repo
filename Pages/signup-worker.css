@@ -331,3 +331,13 @@ button:hover {
     max-width: 100%;
     height: auto;
   }
+
+  
+/* Error state */
+input.error::placeholder {
+color: rgba(255, 0, 0, 0.50);
+}
+
+input.error {
+border-color: red;
+}

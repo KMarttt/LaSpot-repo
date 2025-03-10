@@ -3,15 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-
-
     <link rel="stylesheet" href="/css/signup-student.css">
     <title>Signup Student</title>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('form').addEventListener('submit', function(event) {
+          event.preventDefault();
+          const Form = document.querySelector('form');
+          const FName = document.querySelector('input[name="FName"]');
+          const LName = document.querySelector('input[name="LName"]');
+          const SEmail = document.querySelector('input[name="StuEmail"]');
+          const SNum = document.querySelector('input[name="StuNumber"]');
+          const Pass = document.querySelector('input[name="StuPass"]');
+          const CPass = document.querySelector('input[name="StuConfirmPass"]');
+          const namePattern = /^[a-zA-Z]{2,}(?: [a-zA-Z]+)*$/;
+          const emailPattern = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@dlsud\.edu\.ph$/;
+          const idPattern = /^\d{9}$/;
+          let valid = true;
+
+
+          if (!FName.value.trim() || !namePattern.test(FName.value))  {
+              event.preventDefault();
+              FName.classList.add('error');
+              FName.placeholder = 'Invalid first name';
+              FName.value = "";
+              valid = false;
+          } else {
+              FName.classList.remove('error');
+              FName.placeholder = FName.dataset.placeholder;
+          };
+
+          if (!LName.value.trim() || !namePattern.test(LName.value)) {
+              LName.classList.add('error');
+              LName.placeholder = 'Invalid last name';
+              LName.value = "";
+              valid = false;
+          } else {
+              LName.classList.remove('error');
+              LName.placeholder = LName.dataset.placeholder;
+          }
+
+          if (!SEmail.value.trim() || !emailPattern.test(SEmail.value)) {
+              SEmail.classList.add('error');
+              SEmail.placeholder = 'Please enter a valid DLSU-D email';
+              SEmail.value = "";
+              valid = false;
+          } else {
+              SEmail.classList.remove('error');
+              SEmail.placeholder = SEmail.dataset.placeholder;
+          }
+
+          if (!SNum.value.trim() || !idPattern.test(SNum.value)) {
+              SNum.classList.add('error');
+              SNum.placeholder = 'Student number is required';
+              SNum.value = ""
+              valid = false;
+          } else {
+              SNum.classList.remove('error');
+              SNum.placeholder = SNum.dataset.placeholder;
+          }
+
+          if (!Pass.value.trim()) {
+              Pass.classList.add('error');
+              Pass.placeholder = 'Password is required';
+              Pass.value = "";
+              valid = false;
+          } else {
+              Pass.classList.remove('error');
+              Pass.placeholder = Pass.dataset.placeholder;
+          }
+
+
+          if (!CPass.value.trim() || Pass.value !== CPass.value) {
+              CPass.classList.add('error');
+              CPass.placeholder = 'Password does not match';
+              CPass.value = "";
+              valid = false;
+          } else {
+              CPass.classList.remove('error');
+              CPass.placeholder = CPass.dataset.placeholder;
+          }
+
+          if (valid) {
+              Form.submit();
+          } else {
+            return;
+          }
+ 
+        }); 
+      });
+  </script>
+
 </head>
 <body>
+    <header class="header" id="header">
+        <nav class="nav container">
+          <a href="#" class="nav__logo">
+            <img src="Picture/LaspotLogo2.png" alt="logo image" />
+            La Spot
+          </a>
+  
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#home" class="nav__link active-link">Home</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#procedure" class="nav__link">Procedure</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#parking" class="nav__link">Parking</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#contact-us" class="nav__link">Contact Us</a>
+              </li>
+            </ul>
+  
+            <!-- Close Button -->
+            <div class="nav__close" id="nav-close">
+              <i class="ri-close-line"></i>
+            </div>
+          </div>
+  
+          <!-- Toggle Button For Resized Media -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-apps-2-line"></i>
+          </div>
+        </nav>
+      </header>
+
     <div class="wrapper">
         <div class="left-section">
             <div class="parking-picture">
@@ -34,14 +158,14 @@
 
             <div class="container">
                 <form action="/signup-student" method="POST">    
-                    <input type="FName" placeholder="First Name" name="Fname" required>
-                    <input type="LName" placeholder="Last name" name="Lname" required>
-                    <input type="SEmail" placeholder="Student Email" name="StuEmail" required>
-                    <input type="SNum" placeholder="Student Number" name="StuNumber" required>
-                    <input type="Pass" placeholder="Password" name="StuPass" required>
-                    <input type="CPass" placeholder="Confirm Password" name="StuConfirmPass" required>
+                    <input type="FName" placeholder="First Name" name="FName" required data-placeholder="First Name">
+                    <input type="LName" placeholder="Last name" name="LName" required data-placeholder="Last name">
+                    <input type="SEmail" placeholder="Student Email" name="StuEmail" required data-placeholder="Student Email">
+                    <input type="SNum" placeholder="Student Number" name="StuNumber" required data-placeholder="Student Number">
+                    <input type="Pass" placeholder="Password" name="StuPass" required data-placeholder="Password">
+                    <input type="CPass" placeholder="Confirm Password" name="StuConfirmPass" required data-placeholder="Confirm Password">
                     <% if (typeof message !== "undefined" && message) { %>
-                        <h4 style="text-align: center; color: red; font-weight: bold; margin-top: 10px;"><%= message %></h4>
+                      <h4 style="text-align: center; color: red; font-weight: bold; margin-top: 10px;"><%= message %></h4>
                     <% } %>
 
                     <button type="submit" class="submit-button">Next</button>

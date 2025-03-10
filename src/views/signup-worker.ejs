@@ -5,8 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/signup-worker.css">
     <title>Signup Worker</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const Form = document.querySelector('form');
+                const FName = document.querySelector('input[name="FName"]');
+                const LName = document.querySelector('input[name="LName"]');
+                const WorkEmail = document.querySelector('input[name="WorkEmail"]');
+                const WorkID = document.querySelector('input[name="WorkId"]');
+                const Pass = document.querySelector('input[name="Pass"]');
+                const CPass = document.querySelector('input[name="WorkConfirmPass"]');
+                const namePattern = /^[a-zA-Z]{2,}(?: [a-zA-Z]+)*$/;
+                const emailPattern = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@dlsud\.edu\.ph$/;
+                const idPattern = /^\d{2,}$/;
+                let valid = true;
+    
+                if (!FName.value || !namePattern.test(FName.value)) {
+                    FName.classList.add('error');
+                    FName.placeholder = 'First name is required';
+                    FName.value = "";
+                    valid = false;
+                } else {
+                    FName.classList.remove('error');
+                    FName.placeholder = FName.dataset.placeholder;
+                }
+    
+                if (!LName.value || !namePattern.test(LName.value)) {
+                    LName.classList.add('error');
+                    LName.placeholder = 'Last name is required';
+                    LName.value = "";
+                    valid = false;
+                } else {
+                    LName.classList.remove('error');
+                    LName.placeholder = LName.dataset.placeholder;
+                }
+    
+                if (!WorkEmail.value || !emailPattern.test(WorkEmail.value)) {
+                    WorkEmail.classList.add('error');
+                    WorkEmail.placeholder = 'Email is required';
+                    WorkEmail.value = "";
+                    valid = false;
+                } else {
+                    WorkEmail.classList.remove('error');
+                    WorkEmail.placeholder = WorkEmail.dataset.placeholder;
+                }
+    
+                if (!WorkID.value || !idPattern.test(WorkID.value)) {
+                    WorkID.classList.add('error');
+                    WorkID.placeholder = 'Worker number is required';
+                    WorkID.value = "";
+                    valid = false;
+                } else {
+                    WorkID.classList.remove('error');
+                    WorkID.placeholder = WorkID.dataset.placeholder;
+                }
+    
+                if (!Pass.value) {
+                    Pass.classList.add('error');
+                    Pass.placeholder = 'Password is required';
+                    valid = false;
+                } else {
+                    Pass.classList.remove('error');
+                    Pass.placeholder = Pass.dataset.placeholder;
+                }
+
+                if (!CPass.value || Pass.value !== CPass.value) {
+                    CPass.classList.add('error');
+                    CPass.placeholder = 'Confirm password is required';
+                    CPass.value = "";
+                    valid = false;
+                } else {
+                    CPass.classList.remove('error');
+                    CPass.placeholder = CPass.dataset.placeholder;
+                }
+    
+                if (valid){
+                    Form.submit();
+                }
+            });
+        })
+    </script>
 </head>
 <body>
+    <header class="header" id="header">
+        <nav class="nav container">
+          <a href="#" class="nav__logo">
+            <img src="Picture/LaspotLogo2.png" alt="logo image" />
+            La Spot
+          </a>
+  
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#home" class="nav__link active-link">Home</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#procedure" class="nav__link">Procedure</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#parking" class="nav__link">Parking</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#contact-us" class="nav__link">Contact Us</a>
+              </li>
+            </ul>
+  
+            <!-- Close Button -->
+            <div class="nav__close" id="nav-close">
+              <i class="ri-close-line"></i>
+            </div>
+          </div>
+  
+          <!-- Toggle Button For Resized Media -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-apps-2-line"></i>
+          </div>
+        </nav>
+      </header>
+
     <div class="wrapper">
         <div class="left-section">
             <div class="parking-picture">
@@ -29,15 +150,15 @@
 
             <div class="container">
                 <form action="/signup-worker" method="POST">    
-                    <input type="text" placeholder="First Name" name="Fname" required>
-                    <input type="text" placeholder="Last Name" name="Lname" required>
-                    <input type="email" placeholder="Email" name="WorkEmail" required>
-                    <input type="text" placeholder="Worker ID" name="WorkId" required>
-                    <input type="password" placeholder="Password" name="Pass" required>
-                    <input type="password" placeholder="Confirm Password" name="StuConfirmPass" required>
-                    <% if (typeof message !== "undefined" && message) { %>
-                        <h4 style="text-align: center; color: red; font-weight: bold; margin-top: 10px;"><%= message %></h4>
-                    <% } %>
+                    <input type="FName" placeholder="First Name" name="FName" required data-placeholder="FName">
+                    <input type="LName" placeholder="Last Name" name="LName" required data-placeholder="LName">
+                    <input type="email" placeholder="Email" name="WorkEmail" required
+                    data-placeholder="email">
+                    <input type="workerID" placeholder="Worker ID" name="WorkId" required
+                    data-placeholder="workerID">
+                    <input type="password" placeholder="Password" name="Pass" required
+                    data-placeholder="password">
+                    <input type="cpassword" placeholder="Confirm Password" name="WorkConfirmPass" required data-placeholder="cpassword">
                     <button type="submit" class="submit-button">Next</button>
                     <a class="need-help" href="">Need help? Visit our <b>help center</b></a>
                 </form>

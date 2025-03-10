@@ -5,8 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/signup2.css">
     <title>Signup</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+          const Form = document.querySelector("form");
+          const Plate = document.querySelector('input[name="CarPlatenumber"]');
+          const platePattern = /^(?=(?:.*\d){3,4})(?=(?:.*[A-Z]){3})[A-Z0-9]{6,7}$/;
+          let valid = true;
+
+          if (!Plate.value || !platePattern.test(Plate.value)) {
+              event.preventDefault();
+              Plate.classList.add('error');
+              Plate.placeholder = 'Invalid plate number';
+              Plate.value = "";
+              valid = false;
+          } else {
+              Plate.classList.remove('error');
+              Plate.placeholder = email.dataset.placeholder;
+          }
+
+          if (valid) {
+            Form.submit()
+          }
+
+          });
+        });
+    </script>
 </head>
 <body>
+    <header class="header" id="header">
+        <nav class="nav container">
+          <a href="#" class="nav__logo">
+            <img src="Picture/LaspotLogo2.png" alt="logo image" />
+            La Spot
+          </a>
+  
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#home" class="nav__link active-link">Home</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#procedure" class="nav__link">Procedure</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#parking" class="nav__link">Parking</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#contact-us" class="nav__link">Contact Us</a>
+              </li>
+            </ul>
+  
+            <!-- Close Button -->
+            <div class="nav__close" id="nav-close">
+              <i class="ri-close-line"></i>
+            </div>
+          </div>
+  
+          <!-- Toggle Button For Resized Media -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-apps-2-line"></i>
+          </div>
+        </nav>
+      </header>
+
     <div class="wrapper">
         <div class="left-section">
             <div class="parking-picture">
@@ -34,7 +100,7 @@
                         <option value="SUV">SUV</option>
                         <option value="Motorcycle">Motorcycle</option>
                     </select>
-                    <input type="Plate" placeholder="Plate number" name="CarPlatenumber" required>
+                    <input type="Plate" placeholder="Plate number" name="CarPlatenumber" required data-placeholder="PlateNumber">
                     <% if (typeof message !== "undefined" && message) { %>
                         <h4 style="text-align: center; color: red; font-weight: bold; margin-top: 10px;"><%= message %></h4>
                     <% } %>
